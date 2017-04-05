@@ -18,7 +18,7 @@ done < ./aur-pkglist.dat
 
 # Step two: find all build packages and add them to the repo
 mkdir -p $REPODIR
-find . -name '*.pkg*' -type f | while read FILE; do
+find . -name '*.pkg.tar.xz' -type f | while read FILE; do
     repo-add $REPODIR/gizmonicus.db.tar "$FILE"
     cp $FILE $REPODIR
 done
