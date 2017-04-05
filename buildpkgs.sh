@@ -6,7 +6,7 @@ test -n "$S3BUCKET" || exit "You must set S3BUCKET var"
 # Step one: clone repos and build.
 while read PACKAGE; do
     git clone --depth=1 https://aur.archlinux.org/$PACKAGE.git ./$PACKAGE
-    pushd ./$PACKAGE; makepkg -sc; popd
+    pushd ./$PACKAGE; makepkg -sc --noconfirm; popd
 done < ./aur-pkglist.dat
 
 # Step two: find all build packages and add them to the repo
