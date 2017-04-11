@@ -1,5 +1,5 @@
 FROM base/archlinux:latest
-RUN pacman --noconfirm -Syu && \
+RUN pacman --noconfirm -Syyu && \
     pacman --noconfirm -S base-devel git python-pip sudo
 
 RUN pip install awscli
