@@ -6,10 +6,14 @@ RUN echo -e '[multilib]\nInclude = /etc/pacman.d/mirrorlist\n' >> /etc/pacman.co
 RUN pacman --noconfirm -Syyu && \
     pacman --noconfirm -S \
         base-devel \
+        fftw \
         git \
         python-pip \
         sudo \
         wine
+
+# Install multilib GCC. Pacman should support more script friendly options.
+RUN yes | pacman -S gcc-multilib
 
 RUN pip install awscli
 RUN useradd -d /home/aur aur
